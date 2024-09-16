@@ -1,12 +1,17 @@
 import { styled } from '@mui/material/styles';
 
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import HomeIcon from '@mui/icons-material/Home';
+import AppsIcon from '@mui/icons-material/Apps';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const StyledBottomNavigation = styled(BottomNavigation)({
-    backgroundColor: 'transparent',
+    justifyContent: 'end',
+});
+
+const StyledBottomNavigationAction = styled(BottomNavigationAction)({
+    color: 'white',
+    backgroundColor: 'rgba(137, 165, 203, 0.20)',
 });
 
 interface MenuBarProps {
@@ -24,9 +29,12 @@ const MenuBar = (props: MenuBarProps) => {
             onChange={(_, newValue) => onSelectedMenuChange(newValue)}
             data-testid="menu"
         >
-            <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-            <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-            <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+            <StyledBottomNavigationAction label="Home" icon={<HomeIcon />} />
+            <StyledBottomNavigationAction label="Apps" icon={<AppsIcon />} />
+            <StyledBottomNavigationAction
+                label="Contact"
+                icon={<AlternateEmailIcon />}
+            />
         </StyledBottomNavigation>
     );
 };
