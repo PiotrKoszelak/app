@@ -1,5 +1,8 @@
-import { styled } from '@mui/material/styles';
+import { useCallback } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeMenu, selectSelectedMenu } from '../../store/globalSlice';
 
+import { styled } from '@mui/material/styles';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
@@ -14,13 +17,16 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)({
     backgroundColor: 'rgba(137, 165, 203, 0.20)',
 });
 
-interface MenuBarProps {
-    selectedMenu: number;
-    onSelectedMenuChange: (value: number) => void;
-}
+const MenuBar = () => {
+    const dispatch = useAppDispatch();
+    const selectedMenu = useAppSelector(selectSelectedMenu);
 
-const MenuBar = (props: MenuBarProps) => {
-    const { selectedMenu, onSelectedMenuChange } = props;
+    const onSelectedMenuChange = useCallback(
+        (menu: number) => {
+            dispatch(changeMenu(menu));
+        },
+        [dispatch]
+    );
 
     return (
         <StyledBottomNavigation

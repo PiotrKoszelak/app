@@ -8,35 +8,14 @@ import Lamp from '../../assets/lamp.png';
 
 import { backgroundShift } from '../../utils/constants';
 
-interface LayoutProps {
-    selectedMenu: number;
-}
-
-const Layout = (props: LayoutProps) => {
-    const { selectedMenu } = props;
+const Layout = () => {
     return (
         <div data-testid="layout">
-            <MovingElement
-                selectedMenu={selectedMenu}
-                image={Wall}
-                shift={backgroundShift}
-            />
-            <MovingElement
-                selectedMenu={selectedMenu}
-                image={Lamp}
-                shift={90}
-            />
-            <MovingElement
-                selectedMenu={selectedMenu}
-                image={Lamps}
-                shift={100}
-            />
-            <MovingElement
-                selectedMenu={selectedMenu}
-                image={Table}
-                shift={160}
-            />
-            <TextElement selectedMenu={selectedMenu} shift={backgroundShift} />
+            <MovingElement image={Wall} shift={backgroundShift} />
+            <MovingElement image={Lamp} shift={90} />
+            <MovingElement image={Lamps} shift={100} />
+            <MovingElement image={Table} shift={160} />
+            <TextElement shift={backgroundShift} />
         </div>
     );
 };

@@ -1,6 +1,9 @@
+import { useAppSelector } from '../../store/hooks';
+import { selectSelectedMenu } from '../../store/globalSlice';
+
 import styled from 'styled-components';
 
-const StyledTextElement = styled.div<TextElementProps>`
+const StyledTextElement = styled.div<StyledTextElementProps>`
     position: absolute;
     transition: left 2s;
     top: 300px;
@@ -16,8 +19,11 @@ const StyledTextElement = styled.div<TextElementProps>`
 `;
 
 interface TextElementProps {
-    selectedMenu: number;
     shift: number;
+}
+
+interface StyledTextElementProps extends TextElementProps {
+    selectedMenu: number;
 }
 
 const titles = [
@@ -27,7 +33,9 @@ const titles = [
 ];
 
 const TextElement = (props: TextElementProps) => {
-    const { selectedMenu, shift } = props;
+    const { shift } = props;
+
+    const selectedMenu = useAppSelector(selectSelectedMenu);
 
     return (
         <StyledTextElement selectedMenu={selectedMenu} shift={shift}>

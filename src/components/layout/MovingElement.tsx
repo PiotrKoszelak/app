@@ -1,6 +1,9 @@
+import { useAppSelector } from '../../store/hooks';
+import { selectSelectedMenu } from '../../store/globalSlice';
+
 import styled from 'styled-components';
 
-const StyledMovingElement = styled.div<MovingElementProps>`
+const StyledMovingElement = styled.div<StyledMovingElementProps>`
     position: absolute;
     background-image: url(${(props) => props.image});
     background-position: ${(props) => -props.selectedMenu * props.shift + 'px'};
@@ -16,13 +19,18 @@ const StyledMovingElement = styled.div<MovingElementProps>`
 `;
 
 interface MovingElementProps {
-    selectedMenu: number;
     shift: number;
     image: string;
 }
 
+interface StyledMovingElementProps extends MovingElementProps {
+    selectedMenu: number;
+}
+
 const MovingElement = (props: MovingElementProps) => {
-    const { selectedMenu, shift, image } = props;
+    const { shift, image } = props;
+
+    const selectedMenu = useAppSelector(selectSelectedMenu);
 
     return (
         <StyledMovingElement
