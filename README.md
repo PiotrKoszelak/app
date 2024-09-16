@@ -1,13 +1,14 @@
-# Client template
+# App
 
-This is a template of React project implementation.
-It has all the configuration prepared and is written in TypeScript.
+The app is under development.
+
+![Alt text](src/assets/app.png?raw=true 'Title')
 
 ## Configuration
 
 ### Framework
 
-1. React
+1. React + Redux
 
 2. TypeScript
 
