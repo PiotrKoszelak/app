@@ -1,4 +1,4 @@
-import { Language } from './constants';
+import { Language } from '../utils/constants';
 
 export interface GlobalState {
     language: Language;

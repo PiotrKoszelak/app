@@ -7,6 +7,7 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LanguageToggle from './Lanuage';
 
 const StyledBottomNavigation = styled(BottomNavigation)({
     justifyContent: 'end',
@@ -41,6 +42,7 @@ const MenuBar = () => {
                 label="Contact"
                 icon={<AlternateEmailIcon />}
             />
+            <LanguageToggle />
         </StyledBottomNavigation>
     );
 };

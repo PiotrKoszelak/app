@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
 import { GlobalState } from './types';
-import { Language } from './constants';
+import { Language } from '../utils/constants';
 
 const initialState: GlobalState = {
     language: Language.en,

@@ -1,7 +1,8 @@
 import { useAppSelector } from '../../store/hooks';
-import { selectSelectedMenu } from '../../store/globalSlice';
+import { selectLanguage, selectSelectedMenu } from '../../store/globalSlice';
 
 import styled from 'styled-components';
+import { titlesText, detailsText } from '../../utils/i18n';
 
 const StyledTextElement = styled.div<StyledTextElementProps>`
     position: absolute;
@@ -12,10 +13,14 @@ const StyledTextElement = styled.div<StyledTextElementProps>`
     font-family: Lato;
     left: ${(props) => 420 - props.selectedMenu * props.shift + 'px'};
     @media (max-width: 768px) {
-        left: calc(
-            30% + ${(props) => 420 - props.selectedMenu * props.shift + 'px'}
-        );
+        max-width: 80%;
+        left: 10%;
     }
+`;
+
+const StyledDetailsElement = styled.div`
+    top: 400px;
+    font-size: 30px;
 `;
 
 interface TextElementProps {
@@ -26,20 +31,18 @@ interface StyledTextElementProps extends TextElementProps {
     selectedMenu: number;
 }
 
-const titles = [
-    'Welcome!',
-    'This is first page',
-    'Another example of the text',
-];
-
 const TextElement = (props: TextElementProps) => {
     const { shift } = props;
 
     const selectedMenu = useAppSelector(selectSelectedMenu);
+    const selectedLanguage = useAppSelector(selectLanguage);
 
     return (
         <StyledTextElement selectedMenu={selectedMenu} shift={shift}>
-            {titles[selectedMenu]}
+            {titlesText[selectedLanguage][selectedMenu]}
+            <StyledDetailsElement>
+                {detailsText[selectedLanguage][selectedMenu]}
+            </StyledDetailsElement>
         </StyledTextElement>
     );
 };
