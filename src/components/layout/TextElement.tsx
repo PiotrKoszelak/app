@@ -10,17 +10,21 @@ const StyledTextElement = styled.div<StyledTextElementProps>`
     top: 300px;
     font-size: 50px;
     max-width: 500px;
-    font-family: Lato;
     left: ${(props) => 420 - props.selectedMenu * props.shift + 'px'};
     @media (max-width: 768px) {
         max-width: 80%;
         left: 10%;
+        font-size: 30px;
     }
 `;
 
 const StyledDetailsElement = styled.div`
     top: 400px;
     font-size: 30px;
+    color: #666d75;
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
 `;
 
 interface TextElementProps {

@@ -13,10 +13,13 @@ const StyledBottomNavigation = styled(BottomNavigation)({
     justifyContent: 'end',
 });
 
-const StyledBottomNavigationAction = styled(BottomNavigationAction)({
-    color: 'white',
-    backgroundColor: 'rgba(137, 165, 203, 0.20)',
-});
+const StyledBottomNavigationAction = styled(BottomNavigationAction)`
+    color: white;
+    background-color: rgba(137, 165, 203, 0.2);
+    @media (max-width: 768px) {
+        max-width: 50px;
+    }
+`;
 
 const MenuBar = () => {
     const dispatch = useAppDispatch();
