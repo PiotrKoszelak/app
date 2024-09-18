@@ -1,5 +1,6 @@
 import MovingElement from './MovingElement';
 import TextElement from './TextElement';
+import Logo from './Logo';
 
 import Lamps from '../../assets/lamps.png';
 import Table from '../../assets/table.png';
@@ -16,6 +17,7 @@ const Layout = () => {
             <MovingElement image={Lamps} shift={100} />
             <MovingElement image={Table} shift={160} />
             <TextElement shift={backgroundShift} />
+            <Logo />
         </div>
     );
 };
