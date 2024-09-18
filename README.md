@@ -1,6 +1,8 @@
 # App
 
-The app is under development.
+https://koszelakpiotr.onrender.com/
+
+Please note that the app is under development.
 
 ![Alt text](src/assets/app.png?raw=true 'Title')
 
