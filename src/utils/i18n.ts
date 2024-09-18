@@ -9,3 +9,8 @@ export const detailsText = {
     [Language[Language.en]]: ['Let me show You smth', 'b', 'c'],
     [Language[Language.pl]]: ['Pozwól, że Ci coś pokażę', 't', 'k'],
 };
+
+export const footerText = {
+    [Language[Language.en]]: 'Some graphics are designed by',
+    [Language[Language.pl]]: 'Niektóre grafiki zostały stworzone przez',
+};
