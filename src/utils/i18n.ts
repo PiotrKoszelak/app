@@ -1,4 +1,4 @@
-import { LanguageList, MenuList } from './constants';
+import { AppList, LanguageList, MenuList } from './constants';
 
 export const titlesText = {
     [MenuList.main]: {
@@ -31,4 +31,26 @@ export const detailsText = {
 export const footerText = {
     [LanguageList.en]: 'Some graphics are designed by',
     [LanguageList.pl]: 'Niektóre grafiki zostały stworzone przez',
+};
+
+export const appsTitle = {
+    [AppList.mortgageCalculator]: {
+        [LanguageList.en]: 'Mortgage calculator',
+        [LanguageList.pl]: 'Kalkulator kredytu hipotecznego',
+    },
+    [AppList.map]: {
+        [LanguageList.en]: 'Maps',
+        [LanguageList.pl]: 'Mapy',
+    },
+};
+
+export const appsDescription = {
+    [AppList.mortgageCalculator]: {
+        [LanguageList.en]: 'Use it to calculate your mortgage installment',
+        [LanguageList.pl]: 'Oblicz ratę swojego kredytu',
+    },
+    [AppList.map]: {
+        [LanguageList.en]: 'Use it to analyze geospatial data',
+        [LanguageList.pl]: 'Analizuj dane przestrzenne',
+    },
 };

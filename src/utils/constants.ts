@@ -10,3 +10,8 @@ export enum MenuList {
     app,
     contact,
 }
+
+export enum AppList {
+    mortgageCalculator = 'Mortgage calculator',
+    map = 'Map',
+}
