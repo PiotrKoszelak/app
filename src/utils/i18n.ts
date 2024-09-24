@@ -1,28 +1,30 @@
 import { LanguageList, MenuList } from './constants';
 
 export const titlesText = {
-    [LanguageList.en]: {
-        [MenuList.main]: "Hello, I'm Piotr",
-        [MenuList.app]: 'List of applications',
-        [MenuList.contact]: 'Contact',
+    [MenuList.main]: {
+        [LanguageList.en]: "Hello, I'm Piotr",
+        [LanguageList.pl]: 'Cześć, jestem Piotr',
     },
-    [LanguageList.pl]: {
-        [MenuList.main]: 'Cześć, jestem Piotr',
-        [MenuList.app]: 'Lista aplikacji',
-        [MenuList.contact]: 'Kontakt',
+    [MenuList.app]: {
+        [LanguageList.en]: 'List of applications',
+        [LanguageList.pl]: 'Lista aplikacji',
+    },
+    [MenuList.contact]: {
+        [LanguageList.en]: 'Contact',
+        [LanguageList.pl]: 'Kontakt',
     },
 };
 
 export const detailsText = {
-    [LanguageList.en]: {
-        [MenuList.main]:
+    [MenuList.main]: {
+        [LanguageList.en]:
             "I'm a software developer and this page presents my solutions that are created for having fun",
-        [MenuList.contact]: 'koszelak.piotr@gmail.com',
-    },
-    [LanguageList.pl]: {
-        [MenuList.main]:
+        [LanguageList.pl]:
             'Jestem programistą, a na tej stronie możesz znaleźć moje rozwiązania, które tworzę dla zabawy',
-        [MenuList.contact]: 'koszelak.piotr@gmail.com',
+    },
+    [MenuList.contact]: {
+        [LanguageList.en]: 'koszelak.piotr@gmail.com',
+        [LanguageList.pl]: 'koszelak.piotr@gmail.com',
     },
 };
 

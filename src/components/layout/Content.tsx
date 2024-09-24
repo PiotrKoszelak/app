@@ -50,7 +50,7 @@ const Content = (props: ContentElementProps) => {
 
     return (
         <StyledContentElement selectedMenu={selectedMenu} shift={shift}>
-            {titlesText[selectedLanguage][selectedMenu]}
+            {titlesText[selectedMenu][selectedLanguage]}
             <StyledDetailsElement>
                 <Details />
             </StyledDetailsElement>
