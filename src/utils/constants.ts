@@ -1,6 +1,12 @@
 export const backgroundShift = 70;
 
-export enum Language {
+export enum LanguageList {
     pl = 'pl',
     en = 'en',
+}
+
+export enum MenuList {
+    main,
+    app,
+    contact,
 }

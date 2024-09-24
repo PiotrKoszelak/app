@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { changeMenu, selectSelectedMenu } from '../../store/globalSlice';
+import { MenuList } from '../../utils/constants';
 
 import { styled } from '@mui/material/styles';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
@@ -26,7 +27,7 @@ const MenuBar = () => {
     const selectedMenu = useAppSelector(selectSelectedMenu);
 
     const onSelectedMenuChange = useCallback(
-        (menu: number) => {
+        (menu: MenuList) => {
             dispatch(changeMenu(menu));
         },
         [dispatch]

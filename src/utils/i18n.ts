@@ -1,32 +1,32 @@
-import { Language } from './constants';
+import { LanguageList, MenuList } from './constants';
 
 export const titlesText = {
-    [Language[Language.en]]: [
-        "Hello, I'm Piotr",
-        'List of applications',
-        'Contact',
-    ],
-    [Language[Language.pl]]: [
-        'Cześć, jestem Piotr',
-        'Lista aplikacji',
-        'Kontakt',
-    ],
+    [LanguageList.en]: {
+        [MenuList.main]: "Hello, I'm Piotr",
+        [MenuList.app]: 'List of applications',
+        [MenuList.contact]: 'Contact',
+    },
+    [LanguageList.pl]: {
+        [MenuList.main]: 'Cześć, jestem Piotr',
+        [MenuList.app]: 'Lista aplikacji',
+        [MenuList.contact]: 'Kontakt',
+    },
 };
 
 export const detailsText = {
-    [Language[Language.en]]: [
-        "I'm a software developer and this page presents my solutions that are created for having fun",
-        'Under development',
-        'koszelak.piotr@gmail.com',
-    ],
-    [Language[Language.pl]]: [
-        'Jestem programistą, a na tej stronie możesz znaleźć moje rozwiązania, które tworzę dla zabawy',
-        'Prace w realizacji',
-        'koszelak.piotr@gmail.com',
-    ],
+    [LanguageList.en]: {
+        [MenuList.main]:
+            "I'm a software developer and this page presents my solutions that are created for having fun",
+        [MenuList.contact]: 'koszelak.piotr@gmail.com',
+    },
+    [LanguageList.pl]: {
+        [MenuList.main]:
+            'Jestem programistą, a na tej stronie możesz znaleźć moje rozwiązania, które tworzę dla zabawy',
+        [MenuList.contact]: 'koszelak.piotr@gmail.com',
+    },
 };
 
 export const footerText = {
-    [Language[Language.en]]: 'Some graphics are designed by',
-    [Language[Language.pl]]: 'Niektóre grafiki zostały stworzone przez',
+    [LanguageList.en]: 'Some graphics are designed by',
+    [LanguageList.pl]: 'Niektóre grafiki zostały stworzone przez',
 };

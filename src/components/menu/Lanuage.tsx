@@ -1,14 +1,17 @@
 import { MouseEvent } from 'react';
 import { changeLanguage, selectLanguage } from '../../store/globalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { Language } from '../../utils/constants';
+import { LanguageList } from '../../utils/constants';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 function LanguageToggle() {
     const dispatch = useAppDispatch();
     const selectedLanguage = useAppSelector(selectLanguage);
 
-    const handleChange = (_: MouseEvent<HTMLElement>, language: Language) => {
+    const handleChange = (
+        _: MouseEvent<HTMLElement>,
+        language: LanguageList
+    ) => {
         dispatch(changeLanguage(language));
     };
 
@@ -18,10 +21,10 @@ function LanguageToggle() {
             value={selectedLanguage}
             exclusive
             onChange={handleChange}
-            aria-label="Language"
+            aria-label="LanguageList"
         >
-            <ToggleButton value={Language.pl}>Pl</ToggleButton>
-            <ToggleButton value={Language.en}>En</ToggleButton>
+            <ToggleButton value={LanguageList.pl}>Pl</ToggleButton>
+            <ToggleButton value={LanguageList.en}>En</ToggleButton>
         </ToggleButtonGroup>
     );
 }

@@ -1,8 +1,8 @@
-import { Language } from '../utils/constants';
+import { LanguageList, MenuList } from '../utils/constants';
 
 export interface GlobalState {
-    language: Language;
-    selectedMenu: number;
+    language: LanguageList;
+    selectedMenu: MenuList;
 }
 
 export interface State {

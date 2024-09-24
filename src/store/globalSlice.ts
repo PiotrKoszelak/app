@@ -2,21 +2,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
 import { GlobalState } from './types';
-import { Language } from '../utils/constants';
+import { LanguageList, MenuList } from '../utils/constants';
 
 const initialState: GlobalState = {
-    language: Language.en,
-    selectedMenu: 0,
+    language: LanguageList.en,
+    selectedMenu: MenuList.main,
 };
 
 const globalSlice = createSlice({
     name: 'global',
     initialState,
     reducers: {
-        changeLanguage: (state, action: PayloadAction<Language>) => {
+        changeLanguage: (state, action: PayloadAction<LanguageList>) => {
             state.language = action.payload;
         },
-        changeMenu: (state, action: PayloadAction<number>) => {
+        changeMenu: (state, action: PayloadAction<MenuList>) => {
             state.selectedMenu = action.payload;
         },
     },
