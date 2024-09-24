@@ -7,13 +7,13 @@ import { titlesText, detailsText } from '../../utils/i18n';
 const StyledTextElement = styled.div<StyledTextElementProps>`
     position: absolute;
     transition: left 2s;
-    top: 300px;
+    top: 35%;
     font-size: 50px;
     max-width: 500px;
-    left: ${(props) => 420 - props.selectedMenu * props.shift + 'px'};
+    left: ${(props) => 380 - props.selectedMenu * props.shift + 'px'};
     @media (max-width: 768px) {
-        max-width: 80%;
-        left: 10%;
+        max-width: min(80%, 250px);
+        left: ${(props) => 100 - (props.selectedMenu * props.shift) / 2 + 'px'};
         font-size: 30px;
     }
 `;

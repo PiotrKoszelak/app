@@ -13,7 +13,7 @@ const StyledMovingElement = styled.div<StyledMovingElementProps>`
     background-size: cover;
     @media (max-width: 768px) {
         background-position: calc(
-            10% + ${(props) => -props.selectedMenu * props.shift + 'px'}
+            5% + ${(props) => (-props.selectedMenu * props.shift) / 2 + 'px'}
         );
     }
 `;
