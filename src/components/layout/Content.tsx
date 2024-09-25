@@ -10,23 +10,37 @@ import AppMenu from '../apps/AppMenu';
 const StyledContentElement = styled.div<StyledContentElementProps>`
     position: absolute;
     transition: left 2s;
-    top: 30%;
+    top: 25%;
     font-size: 50px;
-    width: min(500px, 60%);
+    width: 500px;
     text-align: center;
     left: ${(props) => 380 - props.selectedMenu * props.shift + 'px'};
+    @media (max-width: 992px) {
+        width: 350px;
+    }
     @media (max-width: 768px) {
-        max-width: 80%;
+        width: 70%;
+        left: ${(props) => 150 - (props.selectedMenu * props.shift) / 2 + 'px'};
+        font-size: 40px;
+    }
+    @media (max-width: 600px) {
+        width: 60%;
+    }
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         left: ${(props) => 150 - (props.selectedMenu * props.shift) / 2 + 'px'};
         font-size: 30px;
+        width: 200px;
     }
 `;
 
 const StyledDetailsElement = styled.div`
-    top: 400px;
+    margin-top: 20px;
     font-size: 30px;
     color: #666d75;
     @media (max-width: 768px) {
+        font-size: 18px;
+    }
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         font-size: 18px;
     }
 `;

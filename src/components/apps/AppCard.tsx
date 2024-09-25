@@ -8,15 +8,46 @@ import styled from 'styled-components';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 
-const StyledCard = styled(Card)({
-    borderRadius: '20px !important',
-});
+const StyledCard = styled(Card)`
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border-radius: 20px !important;
+    width: 50%;
+    height: 90%;
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        height: 50%;
+    }
+`;
 
-const StyledCardMedia = styled(CardMedia)({
-    backgroundSize: 'initial !important',
-});
+const StyledCardMedia = styled(CardMedia)`
+    background-size: initial !important;
+    height: 100px;
+    @media (max-width: 768px) {
+        height: 70px;
+    }
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        display: none !important;
+    }
+`;
+
+const StyledAppName = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        font-size: 15px;
+    }
+`;
+
+const StyledAppDescription = styled.div`
+    font-size: 15px;
+    margin-top: 20px;
+    @media (max-width: 768px) {
+        font-size: 15px;
+    }
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        font-size: 12px;
+    }
+`;
 
 interface AppCardProps {
     title: AppList;
@@ -29,15 +60,15 @@ export default function AppCard(props: AppCardProps) {
     const selectedLanguage = useAppSelector(selectLanguage);
 
     return (
-        <StyledCard sx={{ width: 250, height: 280 }}>
-            <StyledCardMedia sx={{ height: 100 }} image={image} title={title} />
+        <StyledCard>
+            <StyledCardMedia image={image} title={title} />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <StyledAppName>
                     {appsTitle[title][selectedLanguage]}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                </StyledAppName>
+                <StyledAppDescription>
                     {appsDescription[title][selectedLanguage]}
-                </Typography>
+                </StyledAppDescription>
             </CardContent>
         </StyledCard>
     );
