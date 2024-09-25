@@ -12,7 +12,7 @@ function LanguageToggle() {
         _: MouseEvent<HTMLElement>,
         language: LanguageList
     ) => {
-        dispatch(changeLanguage(language));
+        language && dispatch(changeLanguage(language));
     };
 
     return (
