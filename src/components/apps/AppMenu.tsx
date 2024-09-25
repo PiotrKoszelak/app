@@ -1,6 +1,6 @@
 import AppCard from './AppCard';
 
-import { AppList } from '../../utils/constants';
+import { AppList, Paths } from '../../utils/constants';
 
 import styled from 'styled-components';
 import MortgageImage from '../../assets/mortgage.png';
@@ -23,8 +23,17 @@ const StyledContainer = styled.div`
 export default function AppMenu() {
     return (
         <StyledContainer>
-            <AppCard image={MortgageImage} title={AppList.mortgageCalculator} />
-            <AppCard image={MapImage} title={AppList.map} />
+            <AppCard
+                image={MortgageImage}
+                title={AppList.mortgageCalculator}
+                path={Paths.calculator}
+            />
+            <AppCard
+                image={MapImage}
+                title={AppList.map}
+                path={Paths.calculator}
+                disabled
+            />
         </StyledContainer>
     );
 }

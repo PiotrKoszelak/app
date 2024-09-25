@@ -22,7 +22,13 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)`
     }
 `;
 
-const MenuBar = () => {
+interface MenuBarProps {
+    isApp?: boolean;
+}
+
+const MenuBar = (props: MenuBarProps) => {
+    const { isApp } = props;
+
     const dispatch = useAppDispatch();
     const selectedMenu = useAppSelector(selectSelectedMenu);
 
@@ -40,12 +46,24 @@ const MenuBar = () => {
             onChange={(_, newValue) => onSelectedMenuChange(newValue)}
             data-testid="menu"
         >
-            <StyledBottomNavigationAction label="Home" icon={<HomeIcon />} />
-            <StyledBottomNavigationAction label="Apps" icon={<AppsIcon />} />
-            <StyledBottomNavigationAction
-                label="Contact"
-                icon={<AlternateEmailIcon />}
-            />
+            {!isApp && (
+                <StyledBottomNavigationAction
+                    label="Home"
+                    icon={<HomeIcon />}
+                />
+            )}
+            {!isApp && (
+                <StyledBottomNavigationAction
+                    label="Apps"
+                    icon={<AppsIcon />}
+                />
+            )}
+            {!isApp && (
+                <StyledBottomNavigationAction
+                    label="Contact"
+                    icon={<AlternateEmailIcon />}
+                />
+            )}
             <LanguageToggle />
         </StyledBottomNavigation>
     );

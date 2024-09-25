@@ -54,3 +54,8 @@ export const appsDescription = {
         [LanguageList.pl]: 'Analizuj dane przestrzenne',
     },
 };
+
+export const appPlaceholder = {
+    [LanguageList.en]: 'Application is under development',
+    [LanguageList.pl]: 'Aplikacja w budowie',
+};
