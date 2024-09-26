@@ -24,6 +24,9 @@ const StyledCard = styled(Card)<StyledCardProps>`
     &:hover {
         background-color: rgba(255, 255, 255, 0.9) !important;
     }
+    @media (max-width: 600px) {
+        height: 70%;
+    }
     @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         height: 50%;
     }
@@ -34,6 +37,9 @@ const StyledCardMedia = styled(CardMedia)`
     height: 100px;
     @media (max-width: 768px) {
         height: 70px;
+    }
+    @media (max-width: 600px) {
+        display: none !important;
     }
     @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         display: none !important;

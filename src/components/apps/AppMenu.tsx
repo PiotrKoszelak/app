@@ -15,6 +15,9 @@ const StyledContainer = styled.div`
     @media (max-width: 600px) {
         justify-content: start;
     }
+    @media (max-width: 600px) {
+        align-items: start;
+    }
     @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         align-items: start;
     }
