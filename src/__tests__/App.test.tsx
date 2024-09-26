@@ -3,9 +3,9 @@ import { renderWithProviders } from './test-utils';
 
 import App from '../App';
 
-test('Displays all elements', async () => {
+test('Displays all elements', () => {
     renderWithProviders(<App />);
 
-    expect(screen.getByTestId('menu')).toBeInTheDocument();
+    expect(screen.getByRole('menubar')).toBeInTheDocument();
     expect(screen.getByTestId('layout')).toBeInTheDocument();
 });

@@ -82,7 +82,11 @@ export default function AppCard(props: AppCardProps) {
     const navigate = useNavigate();
 
     return (
-        <StyledCard onClick={() => navigate(`/${path}`)} disabled={disabled}>
+        <StyledCard
+            role="button"
+            onClick={() => navigate(`/${path}`)}
+            disabled={disabled}
+        >
             <StyledCardMedia image={image} title={title} />
             <CardContent>
                 <StyledAppName>

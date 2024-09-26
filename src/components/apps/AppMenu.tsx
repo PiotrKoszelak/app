@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
 
 export default function AppMenu() {
     return (
-        <StyledContainer>
+        <StyledContainer role="list">
             <AppCard
                 image={MortgageImage}
                 title={AppList.mortgageCalculator}

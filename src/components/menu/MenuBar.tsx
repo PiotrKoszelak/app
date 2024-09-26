@@ -44,7 +44,7 @@ const MenuBar = (props: MenuBarProps) => {
             showLabels
             value={selectedMenu}
             onChange={(_, newValue) => onSelectedMenuChange(newValue)}
-            data-testid="menu"
+            role="menubar"
         >
             {!isApp && (
                 <StyledBottomNavigationAction
