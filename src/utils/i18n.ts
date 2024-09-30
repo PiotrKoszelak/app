@@ -1,61 +1,48 @@
-import { AppList, LanguageList, MenuList } from './constants';
+import { AppList, MenuList } from './constants';
 
-export const titlesText = {
-    [MenuList.main]: {
-        [LanguageList.en]: "Hello, I'm Piotr",
-        [LanguageList.pl]: 'Cześć, jestem Piotr',
+export const translationsEn = {
+    title: {
+        [MenuList.main]: "Hello, I'm Piotr",
+        [MenuList.app]: 'List of applications',
+        [MenuList.contact]: 'Contact',
     },
-    [MenuList.app]: {
-        [LanguageList.en]: 'List of applications',
-        [LanguageList.pl]: 'Lista aplikacji',
-    },
-    [MenuList.contact]: {
-        [LanguageList.en]: 'Contact',
-        [LanguageList.pl]: 'Kontakt',
-    },
-};
-
-export const detailsText = {
-    [MenuList.main]: {
-        [LanguageList.en]:
+    details: {
+        [MenuList.main]:
             "I'm a software developer and this page presents my solutions that are created for having fun",
-        [LanguageList.pl]:
+        [MenuList.contact]: 'koszelak.piotr@gmail.com',
+    },
+    footer: 'Some graphics are designed by',
+    appsTitle: {
+        [AppList.mortgageCalculator]: 'Mortgage calculator',
+        [AppList.map]: 'Maps',
+    },
+    appsDescription: {
+        [AppList.mortgageCalculator]:
+            'Use it to calculate your mortgage installment',
+        [AppList.map]: 'Use it to analyze geospatial data',
+    },
+    appPlaceholder: 'Application is under development',
+};
+
+export const translationsPl = {
+    title: {
+        [MenuList.main]: 'Cześć, jestem Piotr',
+        [MenuList.app]: 'Lista aplikacji',
+        [MenuList.contact]: 'Kontakt',
+    },
+    details: {
+        [MenuList.main]:
             'Jestem programistą, a na tej stronie możesz znaleźć moje rozwiązania, które tworzę dla zabawy',
+        [MenuList.contact]: 'koszelak.piotr@gmail.com',
     },
-    [MenuList.contact]: {
-        [LanguageList.en]: 'koszelak.piotr@gmail.com',
-        [LanguageList.pl]: 'koszelak.piotr@gmail.com',
+    footer: 'Niektóre grafiki zostały stworzone przez',
+    appsTitle: {
+        [AppList.mortgageCalculator]: 'Kalkulator kredytu hipotecznego',
+        [AppList.map]: 'Mapy',
     },
-};
-
-export const footerText = {
-    [LanguageList.en]: 'Some graphics are designed by',
-    [LanguageList.pl]: 'Niektóre grafiki zostały stworzone przez',
-};
-
-export const appsTitle = {
-    [AppList.mortgageCalculator]: {
-        [LanguageList.en]: 'Mortgage calculator',
-        [LanguageList.pl]: 'Kalkulator kredytu hipotecznego',
+    appsDescription: {
+        [AppList.mortgageCalculator]: 'Oblicz ratę swojego kredytu',
+        [AppList.map]: 'Analizuj dane przestrzenne',
     },
-    [AppList.map]: {
-        [LanguageList.en]: 'Maps',
-        [LanguageList.pl]: 'Mapy',
-    },
-};
-
-export const appsDescription = {
-    [AppList.mortgageCalculator]: {
-        [LanguageList.en]: 'Use it to calculate your mortgage installment',
-        [LanguageList.pl]: 'Oblicz ratę swojego kredytu',
-    },
-    [AppList.map]: {
-        [LanguageList.en]: 'Use it to analyze geospatial data',
-        [LanguageList.pl]: 'Analizuj dane przestrzenne',
-    },
-};
-
-export const appPlaceholder = {
-    [LanguageList.en]: 'Application is under development',
-    [LanguageList.pl]: 'Aplikacja w budowie',
+    appPlaceholder: 'Aplikacja w budowie',
 };

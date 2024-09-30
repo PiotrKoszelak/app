@@ -4,12 +4,8 @@ import userEvent, {
 } from '@testing-library/user-event';
 import { renderWithProviders } from '../../test-utils';
 
-import { AppList, LanguageList, Paths } from '../../../utils/constants';
-import {
-    appPlaceholder,
-    appsDescription,
-    appsTitle,
-} from '../../../utils/i18n';
+import { AppList, Paths } from '../../../utils/constants';
+import { translationsEn, translationsPl } from '../../../utils/i18n';
 
 import AppCard from '../../../components/apps/AppCard';
 import App from '../../../App';
@@ -25,12 +21,10 @@ test('Displays proper texts', () => {
     );
 
     expect(
-        screen.getByText(appsTitle[AppList.mortgageCalculator][LanguageList.en])
+        screen.getByText(translationsEn.appsTitle[AppList.mortgageCalculator])
     ).toBeInTheDocument();
     expect(
-        screen.getByText(
-            appsDescription[AppList.mortgageCalculator][LanguageList.en]
-        )
+        screen.getByText(translationsEn.appsTitle[AppList.mortgageCalculator])
     ).toBeInTheDocument();
 });
 
@@ -42,12 +36,12 @@ test('Displays proper texts after language change', async () => {
 
     expect(
         await screen.findByText(
-            appsTitle[AppList.mortgageCalculator][LanguageList.en]
+            translationsEn.appsTitle[AppList.mortgageCalculator]
         )
     ).toBeInTheDocument();
     expect(
         await screen.findByText(
-            appsDescription[AppList.mortgageCalculator][LanguageList.en]
+            translationsEn.appsDescription[AppList.mortgageCalculator]
         )
     ).toBeInTheDocument();
 
@@ -56,12 +50,12 @@ test('Displays proper texts after language change', async () => {
 
     expect(
         await screen.findByText(
-            appsTitle[AppList.mortgageCalculator][LanguageList.pl]
+            translationsPl.appsTitle[AppList.mortgageCalculator]
         )
     ).toBeInTheDocument();
     expect(
         await screen.findByText(
-            appsDescription[AppList.mortgageCalculator][LanguageList.pl]
+            translationsPl.appsDescription[AppList.mortgageCalculator]
         )
     ).toBeInTheDocument();
 });
@@ -83,7 +77,7 @@ test('Shows card as disabled', async () => {
 
     await waitFor(() => {
         expect(
-            screen.queryByText(appPlaceholder[LanguageList.en])
+            screen.queryByText(translationsEn.appPlaceholder)
         ).not.toBeInTheDocument();
     });
 });
@@ -101,6 +95,6 @@ test('Navigate to a new page', async () => {
     userEvent.click(card);
 
     expect(
-        await screen.findByText(appPlaceholder[LanguageList.en])
+        await screen.findByText(translationsEn.appPlaceholder)
     ).toBeInTheDocument();
 });

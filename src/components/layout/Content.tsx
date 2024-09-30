@@ -1,7 +1,9 @@
 import { useAppSelector } from '../../store/hooks';
-import { selectLanguage, selectSelectedMenu } from '../../store/globalSlice';
+import {
+    selectSelectedMenu,
+    selectTranslations,
+} from '../../store/globalSlice';
 
-import { titlesText, detailsText } from '../../utils/i18n';
 import { MenuList } from '../../utils/constants';
 
 import styled from 'styled-components';
@@ -57,18 +59,18 @@ const Content = (props: ContentElementProps) => {
     const { shift } = props;
 
     const selectedMenu = useAppSelector(selectSelectedMenu);
-    const selectedLanguage = useAppSelector(selectLanguage);
+    const selectedTranslations = useAppSelector(selectTranslations);
 
     const Details = () => {
         if (selectedMenu === MenuList.app) {
             return <AppMenu />;
         }
-        return <span>{detailsText[selectedMenu][selectedLanguage]}</span>;
+        return <span>{selectedTranslations.details[selectedMenu]}</span>;
     };
 
     return (
         <StyledContentElement selectedMenu={selectedMenu} shift={shift}>
-            {titlesText[selectedMenu][selectedLanguage]}
+            {selectedTranslations.title[selectedMenu]}
             <StyledDetailsElement>
                 <Details />
             </StyledDetailsElement>

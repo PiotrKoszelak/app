@@ -1,7 +1,6 @@
 import { useAppSelector } from '../../store/hooks';
-import { selectLanguage } from '../../store/globalSlice';
+import { selectTranslations } from '../../store/globalSlice';
 
-import { appsDescription, appsTitle } from '../../utils/i18n';
 import { AppList, Paths } from '../../utils/constants';
 
 import styled from 'styled-components';
@@ -77,7 +76,7 @@ type StyledCardProps = Pick<AppCardProps, 'disabled'>;
 export default function AppCard(props: AppCardProps) {
     const { title, image, path, disabled } = props;
 
-    const selectedLanguage = useAppSelector(selectLanguage);
+    const selectedTranslations = useAppSelector(selectTranslations);
 
     const navigate = useNavigate();
 
@@ -90,10 +89,10 @@ export default function AppCard(props: AppCardProps) {
             <StyledCardMedia image={image} title={title} />
             <CardContent>
                 <StyledAppName>
-                    {appsTitle[title][selectedLanguage]}
+                    {selectedTranslations.appsTitle[title]}
                 </StyledAppName>
                 <StyledAppDescription>
-                    {appsDescription[title][selectedLanguage]}
+                    {selectedTranslations.appsDescription[title]}
                 </StyledAppDescription>
             </CardContent>
         </StyledCard>

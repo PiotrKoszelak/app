@@ -1,7 +1,5 @@
 import { useAppSelector } from '../../store/hooks';
-import { selectLanguage } from '../../store/globalSlice';
-
-import { footerText } from '../../utils/i18n';
+import { selectTranslations } from '../../store/globalSlice';
 
 import styled from 'styled-components';
 
@@ -16,11 +14,11 @@ const StyledText = styled.div`
 `;
 
 const Footer = () => {
-    const selectedLanguage = useAppSelector(selectLanguage);
+    const selectedTranslations = useAppSelector(selectTranslations);
 
     return (
         <StyledText>
-            {footerText[selectedLanguage]}
+            {selectedTranslations.footer}
             <a href="https://www.freepik.com/" target="_blank">
                 Freepik
             </a>

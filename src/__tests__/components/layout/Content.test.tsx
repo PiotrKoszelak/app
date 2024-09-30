@@ -2,12 +2,8 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithProviders } from '../../test-utils';
 
-import {
-    backgroundShift,
-    LanguageList,
-    MenuList,
-} from '../../../utils/constants';
-import { detailsText, titlesText } from '../../../utils/i18n';
+import { backgroundShift, MenuList } from '../../../utils/constants';
+import { translationsEn, translationsPl } from '../../../utils/i18n';
 
 import Content from '../../../components/layout/Content';
 import App from '../../../App';
@@ -16,19 +12,19 @@ test('Displays proper texts', () => {
     renderWithProviders(<Content shift={backgroundShift} />);
 
     expect(
-        screen.getByText(titlesText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.title[MenuList.main])
     ).toBeInTheDocument();
     expect(
-        screen.getByText(detailsText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.details[MenuList.main])
     ).toBeInTheDocument();
     expect(
-        screen.queryByText(titlesText[MenuList.app][LanguageList.en])
+        screen.queryByText(translationsEn.title[MenuList.app])
     ).not.toBeInTheDocument();
     expect(
-        screen.queryByText(titlesText[MenuList.contact][LanguageList.en])
+        screen.queryByText(translationsEn.title[MenuList.contact])
     ).not.toBeInTheDocument();
     expect(
-        screen.queryByText(detailsText[MenuList.contact][LanguageList.en])
+        screen.queryByText(translationsEn.details[MenuList.contact])
     ).not.toBeInTheDocument();
 });
 
@@ -36,20 +32,20 @@ test('Displays proper texts after language change', async () => {
     renderWithProviders(<App />);
 
     expect(
-        screen.getByText(titlesText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.title[MenuList.main])
     ).toBeInTheDocument();
     expect(
-        screen.getByText(detailsText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.details[MenuList.main])
     ).toBeInTheDocument();
 
     const plButton = screen.getByText('Pl');
     userEvent.click(plButton);
 
     expect(
-        await screen.findByText(titlesText[MenuList.main][LanguageList.pl])
+        await screen.findByText(translationsPl.title[MenuList.main])
     ).toBeInTheDocument();
     expect(
-        await screen.findByText(detailsText[MenuList.main][LanguageList.pl])
+        await screen.findByText(translationsPl.details[MenuList.main])
     ).toBeInTheDocument();
 });
 
@@ -57,20 +53,20 @@ test('Displays proper texts after page change', async () => {
     renderWithProviders(<App />);
 
     expect(
-        screen.getByText(titlesText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.title[MenuList.main])
     ).toBeInTheDocument();
     expect(
-        screen.getByText(detailsText[MenuList.main][LanguageList.en])
+        screen.getByText(translationsEn.details[MenuList.main])
     ).toBeInTheDocument();
 
     const contactButton = screen.getByRole('button', { name: /Contact/i });
     userEvent.click(contactButton);
 
     expect(
-        await screen.findByText(titlesText[MenuList.contact][LanguageList.en])
+        await screen.findByText(translationsEn.title[MenuList.contact])
     ).toBeInTheDocument();
     expect(
-        await screen.findByText(detailsText[MenuList.contact][LanguageList.en])
+        await screen.findByText(translationsEn.details[MenuList.contact])
     ).toBeInTheDocument();
 });
 
