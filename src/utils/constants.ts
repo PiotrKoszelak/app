@@ -15,7 +15,3 @@ export enum AppList {
     mortgageCalculator = 'Mortgage calculator',
     map = 'Map',
 }
-
-export enum Paths {
-    calculator = 'calculator',
-}

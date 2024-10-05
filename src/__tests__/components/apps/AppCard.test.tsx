@@ -4,20 +4,18 @@ import userEvent, {
 } from '@testing-library/user-event';
 import { renderWithProviders } from '../../test-utils';
 
-import { AppList, Paths } from '../../../utils/constants';
+import { AppList } from '../../../utils/constants';
 import { translationsEn, translationsPl } from '../../../utils/i18n';
 
 import AppCard from '../../../components/apps/AppCard';
 import App from '../../../App';
 import MortgageImage from '../../../assets/mortgage.png';
 
+vi.stubGlobal('open', vi.fn());
+
 test('Displays proper texts', () => {
     renderWithProviders(
-        <AppCard
-            image={MortgageImage}
-            title={AppList.mortgageCalculator}
-            path={Paths.calculator}
-        />
+        <AppCard image={MortgageImage} title={AppList.mortgageCalculator} />
     );
 
     expect(
@@ -65,7 +63,6 @@ test('Shows card as disabled', async () => {
         <AppCard
             image={MortgageImage}
             title={AppList.mortgageCalculator}
-            path={Paths.calculator}
             disabled
         />
     );
@@ -75,26 +72,27 @@ test('Shows card as disabled', async () => {
         pointerEventsCheck: PointerEventsCheckLevel.Never,
     });
 
-    await waitFor(() => {
-        expect(
-            screen.queryByText(translationsEn.appPlaceholder)
-        ).not.toBeInTheDocument();
-    });
+    expect(
+        await screen.findByText(
+            translationsEn.appsDescription[AppList.mortgageCalculator]
+        )
+    ).toBeInTheDocument();
 });
 
 test('Navigate to a new page', async () => {
+    const spy = vi.spyOn(window, 'open');
     renderWithProviders(
         <AppCard
             image={MortgageImage}
             title={AppList.mortgageCalculator}
-            path={Paths.calculator}
+            link="https://www.justfin.site/"
         />
     );
 
     const card = screen.getByRole('button');
     userEvent.click(card);
 
-    expect(
-        await screen.findByText(translationsEn.appPlaceholder)
-    ).toBeInTheDocument();
+    await waitFor(() => {
+        expect(spy).toBeCalledWith(`https://www.justfin.site/`, '_blank');
+    });
 });

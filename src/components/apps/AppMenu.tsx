@@ -1,6 +1,6 @@
 import AppCard from './AppCard';
 
-import { AppList, Paths } from '../../utils/constants';
+import { AppList } from '../../utils/constants';
 
 import styled from 'styled-components';
 import MortgageImage from '../../assets/mortgage.png';
@@ -29,14 +29,9 @@ export default function AppMenu() {
             <AppCard
                 image={MortgageImage}
                 title={AppList.mortgageCalculator}
-                path={Paths.calculator}
+                link="https://www.justfin.site/"
             />
-            <AppCard
-                image={MapImage}
-                title={AppList.map}
-                path={Paths.calculator}
-                disabled
-            />
+            <AppCard image={MapImage} title={AppList.map} disabled />
         </StyledContainer>
     );
 }

@@ -1,13 +1,12 @@
 import { useAppSelector } from '../../store/hooks';
 import { selectTranslations } from '../../store/globalSlice';
 
-import { AppList, Paths } from '../../utils/constants';
+import { AppList } from '../../utils/constants';
 
 import styled from 'styled-components';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { useNavigate } from 'react-router-dom';
 
 const StyledCard = styled(Card)<StyledCardProps>`
     background-color: ${(props) =>
@@ -67,25 +66,25 @@ const StyledAppDescription = styled.div`
 interface AppCardProps {
     title: AppList;
     image: string;
-    path: Paths;
     disabled?: boolean;
+    link?: string;
 }
 
 type StyledCardProps = Pick<AppCardProps, 'disabled'>;
 
 export default function AppCard(props: AppCardProps) {
-    const { title, image, path, disabled } = props;
+    const { title, image, disabled, link } = props;
 
     const selectedTranslations = useAppSelector(selectTranslations);
 
-    const navigate = useNavigate();
+    const onClick = () => {
+        if (link) {
+            window.open(link, '_blank');
+        }
+    };
 
     return (
-        <StyledCard
-            role="button"
-            onClick={() => navigate(`/${path}`)}
-            disabled={disabled}
-        >
+        <StyledCard role="button" onClick={onClick} disabled={disabled}>
             <StyledCardMedia image={image} title={title} />
             <CardContent>
                 <StyledAppName>

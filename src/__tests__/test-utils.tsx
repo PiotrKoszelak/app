@@ -5,9 +5,6 @@ import { render } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 
 import { AppStore, RootState, setupStore } from '../store/store';
-import { Paths } from '../utils/constants';
-
-import Placeholder from '../components/apps/Placeholder';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
     preloadedState?: Partial<RootState>;
@@ -29,7 +26,6 @@ export function renderWithProviders(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={children} />
-                    <Route path={Paths.calculator} element={<Placeholder />} />
                 </Routes>
             </BrowserRouter>
         </Provider>
